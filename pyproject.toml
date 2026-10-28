@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "raftzero"
+version = "0.1.0"
+description = "Deterministic Distributed Raft Consensus Engine & Byzantine Fault-Injection Simulation Runtime"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Ayush Kandwal", email = "ayushkandwal2007@gmail.com" }
+]
+keywords = ["raft", "distributed-systems", "consensus", "fault-tolerance", "simulation", "byzantine"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+]
+
+[project.scripts]
+raftzero = "raftzero.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["raftzero"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
